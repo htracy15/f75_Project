@@ -11,10 +11,12 @@ path = here()
 
 # read in data and clean
 df = read.csv(paste(path,"/Raw_Data/f75_interim.csv",sep=""))
-df$treatment = ifelse(df$arm=='Standard F75',"standard","intervention")
+df$arm = ifelse(df$arm =='Standard F75',"standard","intervention")
+
+yvar = config_list$yvar
 
 # create mosaic plot
-mosaic_plot = mosaic( ~  treatment + hiv_results + sex, highlighting = "treatment", highlighting_fill = c("lightblue", "pink"),data = df)
+mosaic_plot = mosaic( ~ yvar + hiv_results + sex, highlighting = "treatment", highlighting_fill = c("lightblue", "pink"),data = df)
 
 #interpretation: We stratified the patients based on their gender, hiv-testing results, and treatments they received. 
 # Most male and female babies participated in this studies have negative result for hiv-testing
