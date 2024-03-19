@@ -2,6 +2,9 @@
 library(vcd)
 library(here)
 
+# get response var parameter
+config_list <- config::get()
+
 # define path
 here::i_am("Code/Yingte.R")
 path = here()

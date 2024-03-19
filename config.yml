@@ -1,0 +1,4 @@
+default:
+  y-var: arm
+other:
+  y-var: malaria
