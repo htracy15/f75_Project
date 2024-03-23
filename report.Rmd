@@ -51,6 +51,12 @@ Below we report a boxplot.
 #| fig.align = "center",
 #| out.width = "600px"
 knitr::include_graphics(
-  here::here("Output/scatterplot.png")
+  here::here("Output/box_plot1.png")
+)
+
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("Output/box_plot2.png")
 )
 ```
