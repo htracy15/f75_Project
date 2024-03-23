@@ -21,8 +21,8 @@ var_label(df) <- list(
 
 df$treatment <- ifelse(
   df$arm == "Standard F75", 
-  "standard", 
-  "intervention"
+  "Standard", 
+  "Intervention"
 )
 
 table_one <- df |>

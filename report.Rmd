@@ -3,7 +3,8 @@ title: "Data 550 Midterm Project Report"
 author: "Tracy Huang, Guadalupe Rivera, Yingte Liu, Jiali Guo"
 date: "`r Sys.Date()`"
 output: html_document
-params:
+params: 
+  text: display
 ---
 
 ```{r, set-chunk-opts, echo = FALSE}
@@ -39,10 +40,11 @@ table
 Below we report a mosaic plot. 
 
 ```{r, plot-data}
-mosaicplot <- readRDS(
-  file = here::here("Output/mosaic_plot.rds")
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("Output/mosaicplot.png")
 )
-mosaicplot
 ```
 
 Below we report a boxplot.

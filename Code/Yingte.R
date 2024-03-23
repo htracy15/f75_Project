@@ -1,9 +1,8 @@
 # load packages
 library(vcd)
 library(here)
-
-# get response var parameter
-config_list <- config::get()
+library(ggplot2)
+library(ggmosaic)
 
 # define path
 here::i_am("Code/Yingte.R")
@@ -11,12 +10,12 @@ path = here()
 
 # read in data and clean
 df = read.csv(paste(path,"/Raw_Data/f75_interim.csv",sep=""))
-df$arm = ifelse(df$arm =='Standard F75',"standard","intervention")
-
-yvar = config_list$yvar
+df$arm = ifelse(df$arm =='Standard F75',"Standard","Intervention")
 
 # create mosaic plot
-mosaic_plot = mosaic( ~ yvar + hiv_results + sex, highlighting = "treatment", highlighting_fill = c("lightblue", "pink"),data = df)
+mosaicplot <- ggplot(data = df) +
+  geom_mosaic(aes(x=product(hiv_results, arm), fill = arm)) +
+  labs(title='Mosaic Plot')
 
 #interpretation: We stratified the patients based on their gender, hiv-testing results, and treatments they received. 
 # Most male and female babies participated in this studies have negative result for hiv-testing
@@ -24,7 +23,8 @@ mosaic_plot = mosaic( ~ yvar + hiv_results + sex, highlighting = "treatment", hi
 #added some context
 
 # save mosaic plot
-saveRDS(
-  mosaic_plot,
-  file = here::here("output", "mosaic_plot.rds")
+ggsave(
+  here::here("Output/mosaicplot.png"),
+  plot = mosaicplot,
+  device = "png"
 )
