@@ -11,7 +11,7 @@ Output/_____: Code/Guadalupe.R Raw_Data/f75_interim.csv
 
 #! TO DO:
 #! add a rule to create the output of descriptive table
-Output/____: Code/Jiali.R Raw_Data/f75_interim.csv
+Output/table_one.rds: Code/Jiali.R Raw_Data/f75_interim.csv
 	Rscript Code/Jiali.R
 
 #! TO DO:
