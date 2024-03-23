@@ -4,6 +4,9 @@ report.html: Code/render_report.R report.Rmd Raw_Data/f75_interim.csv
 Output/mosaic_plot.rds: Code/Yingte.R Raw_Data/f75_interim.csv
 	Rscript Code/Yingte.R
 
+Output/table_one.rds: Code/Jiali.R Raw_Data/f75_interim.csv
+	Rscript Code/Jiali.R
+
 #! TO DO:
 #! add a rule to create the output of boxplot
 Output/_____: Code/Guadalupe.R Raw_Data/f75_interim.csv
