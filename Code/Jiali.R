@@ -1,26 +1,40 @@
+library(here)
+library(labelled)
+library(gtsummary)
+
 here::i_am("Code/Jiali.R")
-path = here()
+path <- here()
 
 # read in data and clean
 df <- read.csv(paste(path, "/Raw_Data/f75_interim.csv", sep=""))
-df$treatment <- ifelse(df$arm == "Standard F75", "standard", "intervention")
 
 
-library(gtsummary)
-library(table1)
+var_label(df) <- list(
+  agemons = "Age in months",
+  sex = "Sex",
+  weight = "Weight in Kgs",
+  height = "Heigh/Length in Cms",
+  bfeeding = "Is the child still breastfeeding at all?",
+  diarrhoea = "Diarrhoea (3 or more loose stools in 24hrs)",
+  iconsciousness = "Impaired consciousness (AVPU=V,P or U)"
+)
 
-label(df$agemons) <- "Age in months"
-label(df$sex) <- "Sex"
-label(df$weight) <- "Weight in Kgs"
-label(df$height) <- "Heigh/Length in Cms"
-label(df$bfeeding) <- "Is the child still breastfeeding at all?"
-label(df$diarrhoea) <- "Diarrhoea (3 or more loose stools in 24hrs)"
-label(df$iconsciousness) <- "Impaired consciousness (AVPU=V,P or U)"
-label(df$treatment) <- "Randomisation arm"
+df$treatment <- ifelse(
+  df$arm == "Standard F75", 
+  "standard", 
+  "intervention"
+)
 
-table_one <- table1( ~ agemons + sex + weight + height + bfeeding + diarrhoea + iconsciousness | treatment, data = df)
+table_one <- df |>
+  select("treatment", "sex", "agemons", "weight", "height", 
+         "bfeeding", "diarrhoea", "iconsciousness") |>
+  tbl_summary(by = treatment) |>
+  modify_spanning_header(c("stat_1", "stat_2") ~ "**Treatment Group**") |>
+  add_overall() |>
+  add_p()
 
 saveRDS(
   table_one,
   file = here::here("Output/table_one.rds")
 )
+
