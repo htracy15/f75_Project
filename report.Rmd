@@ -4,7 +4,7 @@ author: "Tracy Huang, Guadalupe Rivera, Yingte Liu, Jiali Guo"
 date: "`r Sys.Date()`"
 output: html_document
 params: 
-  text: display
+  production: FALSE
 ---
 
 This report contains some descriptive analyses of the f75 dataset, which contains data from a randomized trial testing whether a modified milk formula (f75) improves outcomes for children with severe acute malnutrition (first 6-months of data from year-long study).
@@ -13,7 +13,7 @@ This report contains some descriptive analyses of the f75 dataset, which contain
 library(knitr)
 library(here)
 opts_chunk$set(
-  echo = FALSE, warning = FALSE, message = FALSE
+  echo = params$production, warning = FALSE, message = FALSE
 )
 ```
 
