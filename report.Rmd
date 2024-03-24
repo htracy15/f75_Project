@@ -7,8 +7,11 @@ params:
   text: display
 ---
 
+This report contains some descriptive analyses of the f75 dataset, which contains data from a randomized trial testing whether a modified milk formula (f75) improves outcomes for children with severe acute malnutrition (first 6-months of data from year-long study).
+
 ```{r, set-chunk-opts, echo = FALSE}
 library(knitr)
+library(here)
 opts_chunk$set(
   echo = FALSE, warning = FALSE, message = FALSE
 )
@@ -39,7 +42,7 @@ table
 
 Below we report a mosaic plot. 
 
-```{r, plot-data}
+```{r, mosaic plot}
 #| fig.align = "center",
 #| out.width = "600px"
 knitr::include_graphics(
@@ -47,9 +50,9 @@ knitr::include_graphics(
 )
 ```
 
-Below we report a boxplot.
+Below we report two boxplots.
 
-```{r, plot-data}
+```{r, boxplot}
 #| fig.align = "center",
 #| out.width = "600px"
 knitr::include_graphics(

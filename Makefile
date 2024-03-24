@@ -6,7 +6,10 @@ Output/mosaic_plot.rds: Code/Yingte.R Raw_Data/f75_interim.csv
 
 #! TO DO:
 #! add a rule to create the output of boxplot
-Output/_____: Code/Guadalupe.R Raw_Data/f75_interim.csv
+Output/box_plot1.png: Code/Guadalupe.R Raw_Data/f75_interim.csv
+	Rscript Code/Guadalupe.R
+	
+Output/box_plot2.png: Code/Guadalupe.R Raw_Data/f75_interim.csv
 	Rscript Code/Guadalupe.R
 
 #! TO DO:
@@ -19,4 +22,4 @@ Output/table_one.rds: Code/Jiali.R Raw_Data/f75_interim.csv
 #! from the output1/2/3 directories
 .PHONY: clean
 clean:
-	rm output1/*.rds && rm output2/*.rds && rm output3/*.rds
+	rm Output/*.rds && rm Output/*.png 

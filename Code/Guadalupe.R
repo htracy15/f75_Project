@@ -8,7 +8,7 @@ path = here()
 
 # read in data and clean
 df = read.csv(paste(path,"/Raw_Data/f75_interim.csv",sep=""))
-df$arm = ifelse(df$arm =='Standard F75',"standard","intervention")
+df$arm = ifelse(df$arm =='Standard F75',"Standard","Intervention")
 
 #set x and y variables
 # y = arm circumference (muac)
