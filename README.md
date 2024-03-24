@@ -4,7 +4,7 @@ Github Repo Organization
 
     -   `Yingte.R` contains code written by Yingte to create a mosaic plot.
 
-    -   `Guadalupe.R` contains code written by Guadalupe to create a boxplot.
+    -   `Guadalupe.R` contains code written by Guadalupe to create two boxplots.
 
     -   `Jiali.R` contains code written by Jiali to create a descriptive table.
 
@@ -12,11 +12,11 @@ Github Repo Organization
 
 -   Output Folder
 
-    -   Mosaic plot
+    -   `table_one.rds` contains a descriptive statistics table one.
 
-    -   Box plot
+    -   `box_plot1.png` and `box_plot2.png` contains two boxplot images.
 
-    -   Descriptive table
+    -   `mosaicplot.png` contains a mosaic plot.
 
 -   `Makefile` contains instructions to create every component for the report.
 

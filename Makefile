@@ -1,4 +1,4 @@
-report.html: Code/render_report.R report.Rmd Raw_Data/f75_interim.csv
+report.html: Code/render_report.R report.Rmd Raw_Data/f75_interim.csv Output/mosaic_plot.rds Output/box_plot1.png Output/box_plot2.png Output/table_one.rds
 	Rscript Code/render_report.R
 	
 Output/mosaic_plot.rds: Code/Yingte.R Raw_Data/f75_interim.csv
