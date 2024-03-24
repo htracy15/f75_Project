@@ -21,3 +21,5 @@ Github Repo Organization
 -   `Makefile` contains instructions to create every component for the report.
 
 -   `report.Rmd` contains R markdown code to compile all components together to create a report.
+
+-   `report.html` contains a HTML file of the rendered report.
